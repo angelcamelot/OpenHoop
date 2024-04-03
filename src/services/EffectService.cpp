@@ -17,6 +17,8 @@
 #include "../../include/effects/FunkyEffect.h"
 #include "../../include/effects/RastafaraiFlagEffect.h"
 #include "../../include/effects/SpectrumEffect.h"
+#include "../../include/effects/MushroomImageEffect.h"
+#include "../../include/effects/RainbowLeopardEffect.h"
 #include "../../include/Config.h"
 
 /**
@@ -77,6 +79,11 @@ void EffectService::dispatchEffectCommand(EffectType gesture) {
         case EffectType::SPECTRUM:
             setEffect(std::make_unique<SpectrumEffect>());
             break;
+        case EffectType::MUSHROOM:
+            setEffect(std::make_unique<MushroomImageEffect>());
+            break;
+        case EffectType::LEOPARDRAINBOW:
+            setEffect(std::make_unique<RainbowLeopardEffect>());
         default:
             // Stop the current effect if no matching gesture is found
             setEffect(nullptr);

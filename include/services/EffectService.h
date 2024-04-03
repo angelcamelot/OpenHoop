@@ -21,6 +21,8 @@ enum class EffectType {
  FUNKY,
  RASTAFARAIFLAG,
  FIRE,
+ MUSHROOM,
+ LEOPARDRAINBOW,
  PULSE = 98,
  SPECTRUM = 99,
 };

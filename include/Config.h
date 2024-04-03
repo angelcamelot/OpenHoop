@@ -23,7 +23,7 @@
 #define REF_VOLTAGE 3.3  ///< Reference voltage in volts.
 
 // LED configuration for the hoop.
-#define NUM_LEDS 63  ///< Number of LEDs in the hoop.
+#define NUM_LEDS 288  ///< Number of LEDs in the hoop.
 #define LEDS_PIN 11  ///< Pin number to which the LEDs are connected.
 
 // Bluetooth configuration.
