@@ -16,10 +16,12 @@
 - [TODOs](#todos)
 - [Contributing](#contributing)
 - [License](#license)
+- [Documentation](DOCUMENTATION.md)
 
 ## Overview
 
-OpenHoop revolutionizes hula hooping by merging cutting-edge LED effects, advanced Bluetooth connectivity, including HID (Human Interface Device) protocol, and energy-saving features. It's a canvas for creative expression, empowering users to craft mesmerizing performances with pixel-perfect LED artistry. With seamless Bluetooth control and an open-source ethos, OpenHoop fosters collaboration and innovation within the community.
+**Unleash your creativity and revolutionize your hula hooping with OpenHoop!**
+This open-source Arduino Nano 33 BLE Sense Rev2 project seamlessly integrates cutting-edge technology with artistic expression. OpenHoop puts the power in your hands, enabling you to design your own LED effects and pixel art directly on your hula hoops. With energy-saving features and utilizing Adafruit NeoPixel LEDs and Bluetooth HID (Human Interface Device) protocol, OpenHoop fosters collaboration and innovation within the community. Join the OpenHoop movement and redefine hula hooping today!
 
 ## Features
 
@@ -41,6 +43,8 @@ OpenHoop revolutionizes hula hooping by merging cutting-edge LED effects, advanc
 - Adafruit NeoPixel LED Strip (2 meters, 144 LEDs per meter)
 - USB 3.1 Type-C Connector (24 Pins Female Plug Socket)
 - Assorted Cables and Connectors
+- 6.3V 4000 Capacitor (optional)
+- Ceramic Capacitors (optional)
 - Male and Female Butt Socket Electric Motorcycle Wire Connector (optional)
 
 ### Hula Hoop Components
@@ -55,8 +59,8 @@ OpenHoop revolutionizes hula hooping by merging cutting-edge LED effects, advanc
 ### Hula Hoop System Diagram
 
 ![Hula Hoop System Diagram](DIAGRAM.png)
-
-**A visual representation of the hardware components and their connections can be found [here](DIAGRAM.png).**
+*Disclaimer: I am not an electronics engineer or expert. This diagram represents my personal setup and what worked for me. The intention is to ensure a minimum of 144 pixels due to the LED image definition, rechargeability, and a runtime of at least 2 hours. I invite the community to improve the design to work with the same OpenHoop Arduino Nano 33 BLE project and Adafruit NeoPixel LED density.
+The visual representation of the hardware components and their connections can be found [here](DIAGRAM.png).*
 
 ## Software Requirements
 
