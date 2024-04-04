@@ -1,29 +1,21 @@
-# OpenHoop
 
-[![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)](https://opensource.org/)
-[![PlatformIO](https://img.shields.io/badge/PlatformIO-IDE-blue)](https://platformio.org/)
+<p align="center"><a href="https://github.com/angelcamelot/OpenHoop"><img src="LOGO.png" alt="Gray shape logo" height="130"/></a></p>
+<h1 align="center">OpenHoop</h1>
+<p align="center">The world's simplest, most powerful smart hula hoop controller.</p>
 
-## Table of Contents
+<p align="center">
+	<a href="https://opensource.org/"><img alt="Static Badge" src="https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red"></a>
+	<a href="https://platformio.org/"><img alt="Static Badge" src="https://img.shields.io/badge/PlatformIO-IDE-blue"></a>
+    <a href="https://twitter.com/intent/tweet?text=Revolutionize%20your%20hooping%20with%20OpenHoop!%20Control%20your%20LED%20effects%20with%20ease%20and%20unleash%20your%20creativity%20on%20the%20dance%20floor.%20Check%20it%20out:%20https://github.com/angelcamelot/OpenHoop/&hashtags=OpenHoop,hulahoop,LED,Arduino,opensource"><img src="https://img.shields.io/badge/Tweet-1DA1F2?&logo=twitter&logoColor=white" alt="Tweet" height="20"/></a>
 
-- [Overview](#overview)
-- [Features](#features)
-- [Hardware Requirements](#hardware-requirements)
-- [Software Requirements](#software-requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [BLE Commands](#ble-commands)
-- [Troubleshooting](#troubleshooting)
-- [TODOs](#todos)
-- [Contributing](#contributing)
-- [License](#license)
-- [Documentation](DOCUMENTATION.md)
+</p><br/><br/>
 
-## Overview
+## :hear_no_evil: What's all this about OpenHoop?
 
-**Unleash your creativity and revolutionize your hula hooping with OpenHoop!**
-This open-source Arduino Nano 33 BLE Sense Rev2 project seamlessly integrates cutting-edge technology with artistic expression. OpenHoop puts the power in your hands, enabling you to design your own LED effects and pixel art directly on your hula hoops. With energy-saving features and utilizing Adafruit NeoPixel LEDs and Bluetooth HID (Human Interface Device) protocol, OpenHoop fosters collaboration and innovation within the community. Join the OpenHoop movement and redefine hula hooping today!
+**OpenHoop:** Revolutionizing smart hula hoop!
+Unleash your creativity and redefine hula hooping with OpenHoop! This open-source project seamlessly integrates cutting-edge technology with artistic expression. Design captivating LED effects and pixel art directly on your hula hoop, leveraging Adafruit NeoPixel LEDs and Bluetooth HID (Human Interface Device) protocol. With energy-saving features, OpenHoop fosters collaboration and innovation within the community. Join the OpenHoop movement today and redefine hula hooping!
 
-## Features
+## :bulb: Features
 
 - **Versatile Effect Utilities:** Access sound levels, gyroscope readings, and more to enhance LED effects' flexibility.
 - **Pixel Art LED Images:** Display visually striking pixel art images as part of LED effects.
@@ -31,7 +23,7 @@ This open-source Arduino Nano 33 BLE Sense Rev2 project seamlessly integrates cu
 - **Bluetooth Connectivity:** Control LED effects via Bluetooth using a mobile app, leveraging BLE HID protocol.
 - **Energy-Saving Mode:** Optimize battery usage with customizable energy-saving levels for extended performances.
 
-## Hardware Requirements
+## :toolbox: Hardware Requirements
 
 ### Microcontroller, Power Supply, LED and Connectivity
 - Arduino Nano 33 BLE Sense Rev2
@@ -62,24 +54,24 @@ This open-source Arduino Nano 33 BLE Sense Rev2 project seamlessly integrates cu
 *Disclaimer: I am not an electronics engineer or expert. This diagram represents my personal setup and what worked for me. The intention is to ensure a minimum of 144 pixels due to the LED image definition, rechargeability, and a runtime of at least 2 hours. I invite the community to improve the design to work with the same OpenHoop Arduino Nano 33 BLE project and Adafruit NeoPixel LED density.
 The visual representation of the hardware components and their connections can be found [here](DIAGRAM.png).*
 
-## Software Requirements
+## :computer: Software Requirements
 
 - PlatformIO
 
-## Dependencies
+## :link: Dependencies
 
 - [Adafruit NeoPixel Library](https://github.com/adafruit/Adafruit_NeoPixel)
 - [ArduinoBLE Library](https://github.com/arduino-libraries/ArduinoBLE)
 - [PDM Library](https://github.com/arduino-libraries/PDM)
 
-## Installation
+## :inbox_tray: Installation
 
 1. **Clone this repository:** `git clone https://github.com/angelcamelot/OpenHoop.git`
 2. **Open the `OpenHoop` folder in PlatformIO.**
 3. **Install the required libraries using the PlatformIO Library Manager.**
 4. **Connect your hardware and upload the code to your microcontroller.**
 
-## Usage
+## :rocket: Usage
 
 Follow these steps to set up and use OpenHoop for your hula hoop performances:
 
@@ -88,7 +80,7 @@ Follow these steps to set up and use OpenHoop for your hula hoop performances:
 3. **Customize LED effects, colors, and energy-saving settings.**
 4. **Enjoy the mesmerizing light display during your hula hoop performance!**
 
-## BLE Commands
+## :signal_strength: BLE Commands
 
 Use the following commands to customize LED effects:
 
@@ -96,11 +88,15 @@ Use the following commands to customize LED effects:
 - `SolidColor`: Set a solid color using RGB values.
 - `EnergySavingMode`: Adjust energy-saving mode levels (0 to 3).
 
-## Troubleshooting
+## :books: Documentation
+
+[Documentation](DOCUMENTATION.md) contains detailed guidance for utilizing OpenHoop.
+
+## :warning: Troubleshooting
 
 If facing issues, refer to the troubleshooting section in the code or create an issue on the [GitHub repository](https://github.com/angelcamelot/OpenHoop/issues).
 
-## TODOs
+## :clipboard: TODOs
 
 - Conduct thorough testing, including extensive trials with pixel art images.
 - Enhance documentation to provide comprehensive guidance and clarity.
@@ -108,7 +104,7 @@ If facing issues, refer to the troubleshooting section in the code or create an 
 - Refine energy-saving algorithms to optimize battery usage.
 - Improve the mobile app interface for a smoother and more intuitive user experience.
 
-## Contributing
+## :handshake: Contributing
 
 **We're excited to make this an open-source project!** The more creative minds we have on board, the cooler, more feature-rich, and downright awesome this project can become.
 
@@ -125,6 +121,6 @@ If facing issues, refer to the troubleshooting section in the code or create an 
 
 **We appreciate your contributions and can't wait to see what you come up with!**
 
-## License
+## :scroll: License
 
 This project is licensed under the [MIT License](LICENSE.md). See the [LICENSE.md](LICENSE.md) file for details.
