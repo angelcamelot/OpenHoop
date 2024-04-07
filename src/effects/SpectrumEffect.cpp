@@ -10,13 +10,24 @@
 
 #include "../../include/effects/SpectrumEffect.h"
 #include "../../include/Config.h"
+#include "../../include/utils/EffectUtils.h"
+#include <PDM.h>
 
+/**
+ * @brief Constructor for SpectrumEffect.
+ */
 SpectrumEffect::SpectrumEffect() : hue(0), wavePosition(0) {}
 
+/**
+ * @brief Initializes the Effect.
+ */
 void SpectrumEffect::start() {
     PDM.begin(1, 16000);
 }
 
+/**
+ * @brief Updates the Effect.
+ */
 void SpectrumEffect::update() {
     int soundIntensity = EffectUtils::calculateSoundSpectrum();
 
@@ -30,14 +41,22 @@ void SpectrumEffect::update() {
     uint32_t invertedBackgroundColor = Adafruit_NeoPixel::Color(255 - (waveGreenComponent + waveEffect), 255 - waveBlueComponent, 255 - waveGreenComponent);
 
     // Calculate the number of active pixels based on the sound percentage
-    int activePixels = EffectUtils::mapRange(soundIntensity, 1, 10, 1, hoop.numPixels());
+    int activePixels = EffectUtils::mapRange(soundIntensity, 1, 10, 1, hoop.getActivePixels());
 
     // Apply the inverted background color to all LEDs
-    hoop.fill(invertedBackgroundColor);
+    for (int i = 0; i < hoop.getActivePixels(); i++) {
+        uint8_t r = (invertedBackgroundColor >> 16) & 0xFF;
+        uint8_t g = (invertedBackgroundColor >> 8) & 0xFF;
+        uint8_t b = invertedBackgroundColor & 0xFF;
+        hoop.setPixelColor(i, r, g, b);
+    }
 
     // Apply the wave color to the active pixels
     for (int i = 0; i < activePixels; i++) {
-        hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(waveColor));
+        uint8_t r = (waveColor >> 16) & 0xFF;
+        uint8_t g = (waveColor >> 8) & 0xFF;
+        uint8_t b = waveColor & 0xFF;
+        hoop.setPixelColor(i, r, g, b);
     }
 
     hoop.show();
@@ -55,7 +74,11 @@ void SpectrumEffect::update() {
     }
 }
 
+/**
+ * @brief Stops the Effect.
+ * Turns off all LEDs on the display.
+ */
 void SpectrumEffect::stop() {
     PDM.end();
-    hoop.fill(Adafruit_NeoPixel::Color(0, 0, 0));  // Turn off all LEDs when stopping
+    hoop.fill(Adafruit_NeoPixel::Color(0, 0, 0));
 }

@@ -9,27 +9,19 @@
  */
 
 #include "../../include/effects/RastafaraiFlagEffect.h"
-#include "../../include/utils/EffectUtils.h"
-#include "../../include/Config.h"
-#include <cmath>
 
 /**
  * @brief Constructor for RastafaraiFlagEffect.
  * Initializes angle, angular speed, color offset, and flag colors.
  */
 RastafaraiFlagEffect::RastafaraiFlagEffect()
-    : angle(0.0f), angularSpeed(0.02f), colorOffset(0.1f),
-      color1(EffectUtils::HSVtoRGB(0, 255, 255)),
-      color2(EffectUtils::HSVtoRGB(60, 255, 255)),
-      color3(EffectUtils::HSVtoRGB(120, 255, 255)),
-      numLeds(NUM_LEDS) {}
+    : angle(0.0f), angularSpeed(0.02f), colorOffset(0.1f), color1(0xFF0000), color2(0xFFFF00), color3(0x00FF00), numLeds(NUM_LEDS) {}
 
 /**
  * @brief Start the RastafaraiFlagEffect.
  * Placeholder for any initialization logic if needed.
  */
 void RastafaraiFlagEffect::start() {
-    // Initialization logic goes here
 }
 
 /**
@@ -43,13 +35,22 @@ void RastafaraiFlagEffect::update() {
 
         if (portion < 0.333f) {
             // 33.3% green
-            hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(color1));
+            uint8_t r = (color1 >> 16) & 0xFF;
+            uint8_t g = (color1 >> 8) & 0xFF;
+            uint8_t b = color1 & 0xFF;
+            hoop.setPixelColor(i, r, g, b);
         } else if (portion < 0.667f) {
             // 33.3% yellow
-            hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(color2));
+            uint8_t r = (color2 >> 16) & 0xFF;
+            uint8_t g = (color2 >> 8) & 0xFF;
+            uint8_t b = color2 & 0xFF;
+            hoop.setPixelColor(i, r, g, b);
         } else if (portion < 1.0f) {
             // 33.3% red
-            hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(color3));
+            uint8_t r = (color3 >> 16) & 0xFF;
+            uint8_t g = (color3 >> 8) & 0xFF;
+            uint8_t b = color3 & 0xFF;
+            hoop.setPixelColor(i, r, g, b);
         }
     }
 

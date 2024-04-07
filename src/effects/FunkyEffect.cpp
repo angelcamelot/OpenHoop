@@ -11,6 +11,9 @@
 #include "../../include/effects/FunkyEffect.h"
 #include "../../include/Config.h"
 
+/**
+ * @brief Constructor for FunkyEffect.
+ */
 FunkyEffect::FunkyEffect() : time(0.0) {
     // New color palette
     colors[0] = 0x008080;  // Teal
@@ -20,24 +23,37 @@ FunkyEffect::FunkyEffect() : time(0.0) {
     colors[4] = 0xff5bd7;  // Pink
 }
 
+/**
+ * @brief Initializes the Effect.
+ */
 void FunkyEffect::start() {
     hoop.fill(Adafruit_NeoPixel::Color(0, 0, 0));
 }
 
+/**
+ * @brief Updates the Effect.
+ */
 void FunkyEffect::update() {
     // Algorithm to dynamically change the position and color of each LED
-    for (int i = 0; i < hoop.numPixels(); i++) {
+    for (int i = 0; i < hoop.getActivePixels(); i++) {
         // Calculate position and color based on time and current position
         auto position = static_cast<float>(sin((time + i) * 0.1) * 0.5 + 0.5);  // Example of sine function
         int hue = static_cast<int>((position + 1.0f) * 127.5f);
-
-        hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(EffectUtils::HSVtoRGB(hue, 255, 255)));
+        uint32_t color = EffectUtils::HSVtoRGB(hue, 255, 255);
+        uint8_t r = (color >> 16) & 0xFF;
+        uint8_t g = (color >> 8) & 0xFF;
+        uint8_t b = color & 0xFF;
+        hoop.setPixelColor(i, r, g, b);
     }
 
     hoop.show();
     time++;
 }
 
+/**
+ * @brief Stops the Effect.
+ * Turns off all LEDs on the display.
+ */
 void FunkyEffect::stop() {
     hoop.fill(Adafruit_NeoPixel::Color(0, 0, 0));
 }

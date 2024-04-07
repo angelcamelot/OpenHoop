@@ -21,13 +21,13 @@ public:
     /**
      * @brief Constructor for the LeopardPrintImage class.
      */
-    explicit LeopardPrintImage(uint32_t primary_color, uint32_t secondary_color);
+    explicit LeopardPrintImage(LedColor primary_color, LedColor secondary_color);
 
 private:
     /**
      * @brief Set the colors for the leopard print pattern.
      */
-    void setPatternColors(uint32_t primary_color, uint32_t secondary_color) const;
+    void setPatternColors(LedColor primary_color, LedColor secondary_color);
 };
 
 #endif //OPENHOOP_LEOPARDPRINTIMAGE_H

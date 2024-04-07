@@ -12,6 +12,9 @@
 #include "../../include/Config.h"
 #include "../../include/utils/EffectUtils.h"
 
+/**
+ * @brief Constructor for PulseEffect.
+ */
 PulseEffect::PulseEffect() : pulseSpeed(1), pulseBrightness(255), pulseIncrement(5), currentColorIndex(0) {
     colors[0] = Adafruit_NeoPixel::Color(34, 87, 122);   // Deep blue reminiscent of tranquil ocean waves
     colors[1] = Adafruit_NeoPixel::Color(56, 163, 165);  // Subtle greenish-blue representing serene depths
@@ -20,9 +23,15 @@ PulseEffect::PulseEffect() : pulseSpeed(1), pulseBrightness(255), pulseIncrement
     colors[4] = Adafruit_NeoPixel::Color(199, 249, 204); // Soft tea green evoking a sense of calm and balance
 }
 
+/**
+ * @brief Initializes the Effect.
+ */
 void PulseEffect::start() {
 }
 
+/**
+ * @brief Updates the Effect.
+ */
 void PulseEffect::update() {
     // Get the inclination from the gyroscope
     float inclination = EffectUtils::getInclination();
@@ -37,15 +46,22 @@ void PulseEffect::update() {
     pulseBrightness = mappedInclination % 51 * 5;
 
     // Apply the pulse to all LEDs
-    for (int i = 0; i < hoop.numPixels(); i++) {
-        uint32_t color = EffectUtils::interpolateColor(colors[currentColorIndex], colors[(currentColorIndex + 1) % 5], i, hoop.numPixels());
+    for (int i = 0; i < hoop.getActivePixels(); i++) {
+        uint32_t color = EffectUtils::interpolateColor(colors[currentColorIndex], colors[(currentColorIndex + 1) % 5], i, hoop.getActivePixels());
         color = EffectUtils::applyBrightness(color, pulseBrightness);
-        hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(color));
+        uint8_t r = (color >> 16) & 0xFF;
+        uint8_t g = (color >> 8) & 0xFF;
+        uint8_t b = color & 0xFF;
+        hoop.setPixelColor(i, r, g, b);
     }
 
     hoop.show();
 }
 
+/**
+ * @brief Stops the Effect.
+ * Turns off all LEDs on the display.
+ */
 void PulseEffect::stop() {
     hoop.fill(Adafruit_NeoPixel::Color(0, 0, 0));
 }

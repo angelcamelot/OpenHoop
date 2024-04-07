@@ -21,13 +21,13 @@ public:
     /**
      * @brief Constructor for the CupcakeImage class.
      */
-    explicit CupcakeImage(uint32_t color);
+    explicit CupcakeImage(LedColor color);
 
 private:
     /**
      * @brief Set the colors for the pixel art.
      */
-    void setColors(uint32_t color) const;
+    void setColors(LedColor color);
 };
 
 #endif //OPENHOOP_CUPCAKEIMAGE_H

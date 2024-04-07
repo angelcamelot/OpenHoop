@@ -21,13 +21,13 @@ public:
     /**
      * @brief Constructor for the FlowerImage class.
      */
-    explicit FlowerImage(uint32_t color);
+    explicit FlowerImage(LedColor color);
 
 private:
     /**
      * @brief Set the colors for the pixel art.
      */
-    void setColors(uint32_t color) const;
+    void setColors(LedColor color);
 };
 
 #endif //OPENHOOP_FLOWERIMAGE_H

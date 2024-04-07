@@ -37,7 +37,7 @@ public:
     void stop() override;
 
 private:
-    int hue;                          ///< Hue value for the rainbow effect.
+    int hue;  ///< Hue value for the rainbow effect.
     static constexpr uint8_t maxColorValue = 255; ///< Maximum color value.
 };
 

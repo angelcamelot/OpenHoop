@@ -21,18 +21,13 @@ public:
     /**
      * @brief Constructor for the MushroomImage class.
      */
-    explicit MushroomImage(uint32_t color);
+    explicit MushroomImage(LedColor color);
 
 private:
     /**
      * @brief Set the colors for the mushroom image.
      */
-    void setMushroomColors(uint32_t color) const;
-public:
-    /**
-     * @brief Get one random color for the mushroom image.
-     */
-    static uint32_t getRandomColor();
+    void setMushroomColors(LedColor color);
 };
 
 #endif //OPENHOOP_MUSHROOMIMAGE_H

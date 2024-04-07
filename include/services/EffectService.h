@@ -15,16 +15,16 @@
 #include "../effects/Effect.h"
 
 enum class EffectType {
- NO_EFFECT,
- RAINBOW,
- COLORWAVE,
- FUNKY,
- RASTAFARAIFLAG,
- FIRE,
- MUSHROOM,
- LEOPARDRAINBOW,
- PULSE = 98,
- SPECTRUM = 99,
+    NO_EFFECT,
+    RAINBOW,
+    COLORWAVE,
+    FUNKY,
+    RASTAFARAIFLAG,
+    FIRE,
+    LEOPARDRAINBOW,
+    MUSHROOM,
+    PULSE = 98,
+    SPECTRUM = 99,
 };
 
 /**

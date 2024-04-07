@@ -17,9 +17,9 @@
 #include "../../include/effects/FunkyEffect.h"
 #include "../../include/effects/RastafaraiFlagEffect.h"
 #include "../../include/effects/SpectrumEffect.h"
-#include "../../include/effects/MushroomImageEffect.h"
 #include "../../include/effects/RainbowLeopardEffect.h"
-#include "../../include/Config.h"
+#include "../../include/effects/MushroomImageEffect.h"
+#include <Adafruit_NeoPixel.h>
 
 /**
  * @brief Set a new effect, stopping and deleting the current one if it exists.
@@ -84,6 +84,7 @@ void EffectService::dispatchEffectCommand(EffectType gesture) {
             break;
         case EffectType::LEOPARDRAINBOW:
             setEffect(std::make_unique<RainbowLeopardEffect>());
+            break;
         default:
             // Stop the current effect if no matching gesture is found
             setEffect(nullptr);

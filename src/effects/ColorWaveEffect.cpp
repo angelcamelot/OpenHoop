@@ -12,17 +12,29 @@
 #include "../../include/utils/EffectUtils.h"
 #include "../../include/Config.h"
 
+/**
+ * @brief Constructor for ColorWaveEffect.
+ */
 ColorWaveEffect::ColorWaveEffect() : waveSpeed(5), hueOffset(0), saturation(255), brightness(255) {}
 
+/**
+ * @brief Initializes the Effect.
+ */
 void ColorWaveEffect::start() {
     hueOffset = 0; // Ensure resetting the offset at the beginning of the effect
 }
 
+/**
+ * @brief Updates the Effect.
+ */
 void ColorWaveEffect::update() {
-    for (int i = 0; i < hoop.numPixels(); i++) {
+    for (int i = 0; i < hoop.getActivePixels(); i++) {
         int hue = (i * waveSpeed + hueOffset) % 256;
         uint32_t color = EffectUtils::HSVtoRGB(hue, saturation, brightness);
-        hoop.setPixelColor(i, EffectUtils::applyEnergySavingMode(color));
+        uint8_t r = (color >> 16) & 0xFF;
+        uint8_t g = (color >> 8) & 0xFF;
+        uint8_t b = color & 0xFF;
+        hoop.setPixelColor(i, r, g, b);
     }
     hoop.show();
     hueOffset = (hueOffset + 1) % 256;

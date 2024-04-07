@@ -38,8 +38,8 @@ public:
     void stop() override;
 
 private:
-    int hue;                          ///< Hue value for the rainbow effect.
-    static constexpr uint8_t maxColorValue = 255; ///< Maximum color value.
+    int positionX = 0; ///< Horizontal position of the leopard pattern.
+    LeopardPrintImage leopardImage; ///< Instance of leopard print pattern image.
 };
 
 #endif //OPENHOOP_RAINBOWLEOPARDEFFECT_H

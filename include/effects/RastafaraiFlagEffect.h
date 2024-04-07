@@ -14,12 +14,26 @@
 #include "Effect.h"
 #include "../Config.h"
 
+/**
+ * @brief Represents a rastafarai colors flag effect.
+ */
 class RastafaraiFlagEffect : public Effect {
 public:
     RastafaraiFlagEffect();
 
+    /**
+     * @brief Start the effect.
+     */
     void start() override;
+
+    /**
+     * @brief Update the effect.
+     */
     void update() override;
+
+    /**
+     * @brief Stop the effect.
+     */
     void stop() override;
 
 private:
@@ -28,7 +42,6 @@ private:
     float colorOffset;  ///< Offset to adjust the color palette.
     uint32_t color1, color2, color3;  ///< Colors representing the Rastafarian flag.
     int numLeds;  ///< Number of LEDs in the hoop.
-    void updateColors();  ///< Helper function to update flag colors.
 };
 
 #endif //RASTAFARAIFLAGEFFECT_H

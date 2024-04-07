@@ -12,14 +12,27 @@
 #define SPECTRUMEFFECT_H
 
 #include "Effect.h"
-#include "../utils/EffectUtils.h"
 
+/**
+ * @brief Represents a spectrum effect.
+ */
 class SpectrumEffect : public Effect {
 public:
     SpectrumEffect();
 
+    /**
+     * @brief Start the effect.
+     */
     void start() override;
+
+    /**
+     * @brief Update the effect.
+     */
     void update() override;
+
+    /**
+     * @brief Stop the effect.
+     */
     void stop() override;
 
 private:

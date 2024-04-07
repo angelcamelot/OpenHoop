@@ -10,11 +10,16 @@
 
 #include "../../include/images/LeopardPrintImage.h"
 
-LeopardPrintImage::LeopardPrintImage(uint32_t primary_color, uint32_t secondary_color) : LedImage(30, 30) {
+LeopardPrintImage::LeopardPrintImage(LedColor primary_color, LedColor secondary_color) : LedImage(30, 30) {
     setPatternColors(primary_color, secondary_color);
 }
 
-void LeopardPrintImage::setPatternColors(uint32_t primary_color, uint32_t secondary_color) const {
+/**
+ * @brief Sets the colors for the leopard print pattern spots.
+ * @param primary_color The darker color of the leopard spots.
+ * @param secondary_color The lighter color of the leopard spots.
+ */
+void LeopardPrintImage::setPatternColors(LedColor primary_color, LedColor secondary_color) {
     setPixel(0, 0, secondary_color);
     setPixel(1, 0, primary_color);
     setPixel(4, 0, primary_color);
