@@ -84,65 +84,15 @@ uint32_t EffectUtils::applyBrightness(uint32_t color, int brightness) {
 
     return Adafruit_NeoPixel::Color(r, g, b);
 }
-// Static variable to store the energy-saving mode.
-uint8_t EffectUtils::energySavingMode = 0;
 
 /**
- * @brief Set the energy-saving mode.
- * @param mode The energy-saving mode to set.
+ * @brief Static array to store audio sample data.
  */
-void EffectUtils::setEnergySavingMode(uint8_t mode) {
-    energySavingMode = mode;
-}
-
-/**
- * @brief Apply energy-saving mode to a given color.
- * @param color The original color.
- * @return The modified color based on the energy-saving mode.
- */
-uint32_t EffectUtils::applyEnergySavingMode(uint32_t color) {
-    if (energySavingMode == 1) {
-        // Modify the color based on energy-saving mode level 1 (75%)
-        uint8_t red = (color >> 16) & 0xFF;
-        uint8_t green = (color >> 8) & 0xFF;
-        uint8_t blue = color & 0xFF;
-
-        red = static_cast<uint8_t>(red * 0.75);
-        green = static_cast<uint8_t>(green * 0.75);
-        blue = static_cast<uint8_t>(blue * 0.75);
-
-        return (static_cast<uint32_t>(red) << 16) | (static_cast<uint32_t>(green) << 8) | blue;
-    } else if (energySavingMode == 2) {
-        // Modify the color based on energy-saving mode level 2 (50%)
-        uint8_t red = (color >> 16) & 0xFF;
-        uint8_t green = (color >> 8) & 0xFF;
-        uint8_t blue = color & 0xFF;
-
-        red = static_cast<uint8_t>(red * 0.5);
-        green = static_cast<uint8_t>(green * 0.5);
-        blue = static_cast<uint8_t>(blue * 0.5);
-
-        return (static_cast<uint32_t>(red) << 16) | (static_cast<uint32_t>(green) << 8) | blue;
-    } else if (energySavingMode == 3) {
-        // Modify the color based on energy-saving mode level 3 (25%)
-        uint8_t red = (color >> 16) & 0xFF;
-        uint8_t green = (color >> 8) & 0xFF;
-        uint8_t blue = color & 0xFF;
-
-        red = static_cast<uint8_t>(red * 0.25);
-        green = static_cast<uint8_t>(green * 0.25);
-        blue = static_cast<uint8_t>(blue * 0.25);
-
-        return (static_cast<uint32_t>(red) << 16) | (static_cast<uint32_t>(green) << 8) | blue;
-    } else {
-        // If energy-saving mode is not enabled or is level 0, return the original color
-        return color;
-    }
-}
-
-// Static array to store audio sample data.
 short EffectUtils::sampleBuffer[256];
-// Static variable to track the number of samples read.
+
+/**
+ * @brief Static variable to track the number of samples read.
+ */
 volatile int EffectUtils::samplesRead;
 
 /**

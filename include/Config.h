@@ -11,12 +11,12 @@
 #ifndef OPENHOOP_CONFIG_H
 #define OPENHOOP_CONFIG_H
 
-#include <Adafruit_NeoPixel.h>
+#include "utils/HulaHoopNeoPixel.h"
 
 // Pin configuration for reading battery voltage.
 #define BATTERY_ANALOG_PIN 21  ///< Analog pin used for reading battery voltage.
 #define BATTERY_MAX_READING 1024.0  ///< Maximum ADC reading for battery.
-#define BATTERY_MIN_VOLTAGE 5  ///< Minimum voltage considered for the battery.
+#define BATTERY_MIN_VOLTAGE 7  ///< Minimum voltage considered for the battery.
 #define BATTERY_MAX_VOLTAGE 8.4  ///< Maximum voltage for a fully charged battery.
 #define R1 30000.0  ///< Resistance value R1 in Ohms.
 #define R2 7500.0   ///< Resistance value R2 in Ohms.
@@ -26,7 +26,7 @@
 #define NUM_LEDS 288  ///< Number of LEDs in the hoop.
 #define LEDS_PIN 11  ///< Pin number to which the LEDs are connected.
 
-// Bluetooth configuration.
+// Bluetooth's configuration.
 #define EFFECT_SERVICE_UUID "0A92"  ///< UUID for the effect service.
 #define SCOLOR_SERVICE_UUID "0A93"  ///< UUID for the solid color service.
 #define ENERGY_SERVICE_UUID "0A95"  ///< UUID for the energy saving service.
@@ -36,6 +36,6 @@
 #define FIRMWARE_CHARACTERISTIC "v1.0.0"  ///< Firmware version characteristic.
 
 // NeoPixel hoop object.
-extern Adafruit_NeoPixel hoop;  ///< Object representing the NeoPixel hoop.
+extern HulaHoopNeoPixel hoop;  ///< Object representing the NeoPixel hoop.
 
 #endif //OPENHOOP_CONFIG_H

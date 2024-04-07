@@ -15,7 +15,7 @@
 #include "../include/utils/EffectUtils.h"
 #include "../include/Config.h"
 
-Adafruit_NeoPixel hoop(NUM_LEDS, LEDS_PIN, NEO_GRB + NEO_KHZ800);
+HulaHoopNeoPixel hoop(NUM_LEDS, LEDS_PIN, NEO_GRB + NEO_KHZ800);
 
 BleService bleService;
 std::unique_ptr<EffectService> effectService = std::make_unique<EffectService>();
@@ -59,7 +59,7 @@ void updateBLE() {
     // Check for energy-saving mode writes
     if (bleService.energySavingModeCharacteristic.written()) {
         uint8_t energySavingMode = bleService.energySavingModeCharacteristic.value();
-        EffectUtils::setEnergySavingMode(energySavingMode);
+        hoop.setEnergySavingMode(energySavingMode);
     }
 }
 

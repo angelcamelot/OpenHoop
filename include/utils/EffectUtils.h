@@ -72,28 +72,6 @@ public:
     static int calculateSoundSpectrum();
 
     /**
-     * @brief Set the energy-saving mode.
-     * @param mode Energy-saving mode (0 or 1).
-     */
-    static void setEnergySavingMode(uint8_t mode);
-
-    /**
-     * @brief Apply energy-saving mode to a color.
-     * @param color Original color value.
-     * @return Color value adjusted based on energy-saving mode.
-     */
-    static uint32_t applyEnergySavingMode(uint32_t color);
-
-private:
-    // Buffer to read samples into, each sample is 16-bits
-    static short sampleBuffer[256];
-    static uint8_t energySavingMode;  ///< Energy-saving mode (0, 1, 2 or 3).
-
-    // Number of samples read
-    static volatile int samplesRead;
-
-public:
-    /**
      * @brief Callback function for PDM data.
      */
     static void onPDMdata();
@@ -103,6 +81,17 @@ public:
      * @return Inclination angle value.
      */
     static float getInclination();
+
+private:
+    /**
+     * @brief Buffer to read samples into, each sample is 16-bits.
+     */
+    static short sampleBuffer[256];
+
+    /**
+     * @brief Number of samples read.
+     */
+    static volatile int samplesRead;
 };
 
 #endif //OPENHOOP_EFFECTUTILS_H
